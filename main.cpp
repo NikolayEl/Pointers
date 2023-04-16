@@ -23,6 +23,6 @@ int main()
 	cout << *arr << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << arr + i << "\t";
+		cout << *(arr + i) << "\t";
 	}
 }
