@@ -1,25 +1,25 @@
 ﻿#include <iostream>
 using namespace std;
 
+void FillRand(int arr[], const int n);
+void Print(int arr[], const int n);
 void CountingEvenOdd(int arr[], int& even_counters, int& odd_counters, const int n);
 void SplitEvenOdd(int arr[], int arr_even[], int arr_odd[], const int n);
-void Print(int arr[], const int n);
+
 int main()
 {
 	setlocale(LC_ALL, "");
 
 	int n = 10;
 	int* arr = new int[n];
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 15;
-	}
+	FillRand(arr, n);
+	cout << "The whole array: " << endl;
 	Print(arr, n);
 
 	int even_counters;
 	int odd_counters;
 	CountingEvenOdd(arr, even_counters, odd_counters, n); //заполняем счетчик четных и нечетных чисел в массиве
-	cout << "Even = " << even_counters << "    " << "Odd = " << odd_counters << endl << endl; //проверка заполененности четных и нечетных чисел
+	cout << endl << "Even number in array = " << even_counters << "    " << "Odd number in array = " << odd_counters << endl << endl; //проверка заполененности четных и нечетных чисел
 
 	int* arr_even = new int[even_counters];  //создаем динамические массивы
 	int* arr_odd = new int[odd_counters];
@@ -31,6 +31,22 @@ int main()
 	Print(arr_odd, odd_counters);
 
 	delete[] arr, arr_even, arr_odd;
+}
+void FillRand(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 15;
+	}
+}
+
+void Print(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
 }
 
 void CountingEvenOdd(int arr[], int& even_counters, int& odd_counters, const int n)
@@ -65,13 +81,4 @@ void SplitEvenOdd(int arr[], int arr_even[], int arr_odd[], const int n)
 			count_odd++;
 		}
 	}
-}
-
-void Print(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
 }
