@@ -70,15 +70,16 @@ void SplitEvenOdd(int arr[], int arr_even[], int arr_odd[], const int n)
 	int count_even = 0, count_odd = 0;
 	for (int i = 0; i < n; i++)
 	{
-		if (arr[i] % 2 == 0)
-		{
-			arr_even[count_even] = arr[i];
-			count_even++;
-		}
-		else
-		{
-			arr_odd[count_odd] = arr[i];
-			count_odd++;
-		}
+		//if (arr[i] % 2 == 0)
+		//{
+		//	arr_even[count_even] = arr[i];
+		//	count_even++;
+		//}
+		//else
+		//{
+		//	arr_odd[count_odd] = arr[i];
+		//	count_odd++;
+		//}
+		(arr[i] % 2 == 0 ? arr_even[count_even++] : arr_odd[count_odd++]) = arr[i];
 	}
 }
